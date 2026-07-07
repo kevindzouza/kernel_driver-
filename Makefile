@@ -1,4 +1,4 @@
-obj-m += vsensor.o
+obj-m += rpm_sensor.o
 
 KDIR := /lib/modules/$(shell uname -r)/build
 PWD  := $(shell pwd)
@@ -9,13 +9,3 @@ all:
 clean:
 	$(MAKE) -C $(KDIR) M=$(PWD) clean
 
-load:
-	sudo insmod vsensor.ko
-
-unload:
-	sudo rmmod vsensor
-
-reload: unload load
-
-logs:
-	sudo dmesg -wH
