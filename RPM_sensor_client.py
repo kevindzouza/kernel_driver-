@@ -25,8 +25,7 @@ def main():
             data
         )
 
-        print("Interval set to ",value)
-
+        print("Interval syet to ",value)
         buffer = bytearray(4)
 
         fcntl.ioctl(
@@ -37,7 +36,6 @@ def main():
         )
 
         interval = struct.unpack("i", buffer)[0]
-
         print("Current interval:", interval)
 
         while True:
